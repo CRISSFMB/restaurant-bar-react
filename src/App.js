@@ -3,10 +3,12 @@ import { Main } from './layout/Main';
 
 function App() {
   return (
-    <div className="container-app-global">
-      <Header />
-      <Main />
-    </div>
+    <>
+      <div className="container-custom">
+        <Header />
+        <Main />
+      </div>
+    </>
   );
 }
 
