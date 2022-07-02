@@ -17,13 +17,13 @@ export const Info = () => {
     <Button
       text={'Read More'}
       onClick={expandHanlder}
-      classbtn={'btn btn-light'}
+      classbtn={'btn btn-light btn-sm'}
     />
   ) : (
     <Button
-      text={'Close'}
+      text={'Read Less'}
       onClick={closeExpandHanlder}
-      classbtn={'btn btn-danger'}
+      classbtn={'btn btn-primary btn-sm'}
     />
   );
   return (

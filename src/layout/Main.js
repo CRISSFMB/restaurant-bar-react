@@ -1,16 +1,18 @@
-import React from 'react';
-import { Carousel } from '../components/carousel/Carousel';
+import { EventCard } from '../components/eventCard/EventCard';
 import { Galery } from '../components/galery/Galery';
 import { Hero } from '../components/hero/Hero';
 import { Info } from '../components/info/Info';
 
+import { Voucher } from '../components/vocher/Voucher';
+
 export const Main = () => {
   return (
-    <>
+    <div className="wrapper-main">
       <Hero />
       <Info />
       <Galery />
-      {/* <Carousel /> */}
-    </>
+      <Voucher />
+      <EventCard />
+    </div>
   );
 };

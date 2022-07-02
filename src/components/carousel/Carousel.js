@@ -6,8 +6,19 @@ import imagen5 from '../../assets/slider-pictures/slider-picture-5.jpg';
 import imagen6 from '../../assets/slider-pictures/slider-picture-6.jpg';
 import imagen7 from '../../assets/slider-pictures/slider-picture-7.jpg';
 import './carousel.css';
+import { CarouselItem } from './CarouselItem';
 
 export const Carousel = () => {
+  const images = [imagen2, imagen3, imagen4, imagen5, imagen6, imagen7];
+
+  const itemActive = (
+    <div className="carousel-item active">
+      <img src={imagen1} className="d-block w-100 " alt="..." />
+    </div>
+  );
+  const anotheritems = images.map((image, index) => {
+    return <CarouselItem key={index} image={image} />;
+  });
   return (
     <div className="carousel-wrapper">
       <div
@@ -16,27 +27,8 @@ export const Carousel = () => {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={imagen1} className="d-block w-100 " alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src={imagen2} className="d-block w-100" alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src={imagen3} className="d-block w-100 " alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src={imagen4} className="d-block w-100" alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src={imagen5} className="d-block w-100 " alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src={imagen6} className="d-block w-100 " alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src={imagen7} className="d-block w-100 " alt="..." />
-          </div>
+          {itemActive}
+          {anotheritems}
         </div>
         <button
           className="carousel-control-prev"
