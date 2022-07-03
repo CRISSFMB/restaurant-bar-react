@@ -1,8 +1,9 @@
 import { Modal } from '../overlays/Modal';
 import { DeliveryInfoClientForm } from './DeliveryInfoClientForm';
-import { FormCheck } from './FormCheck/FormCheck';
+
 import { OrderList } from './OrderList';
 import { PaymentMethod } from './PaymentMethod';
+import { TimeDelivery } from './timeDelivery.js/TimeDelivery';
 
 export const OrderForm = () => {
   return (
@@ -10,8 +11,8 @@ export const OrderForm = () => {
       <div className="container">
         <DeliveryInfoClientForm />
         <OrderList />
+        <TimeDelivery />
         <PaymentMethod />
-        <FormCheck />
       </div>
     </Modal>
   );

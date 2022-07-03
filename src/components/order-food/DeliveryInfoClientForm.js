@@ -22,6 +22,17 @@ export const DeliveryInfoClientForm = () => {
             <div className="col-12 col-md-4">
               <div className="form-floating mb-3">
                 <input
+                  type="adress"
+                  className="form-control"
+                  id="adress"
+                  placeholder="adress"
+                />
+                <label htmlFor="phone">Your adress</label>
+              </div>
+            </div>
+            <div className="col-12 col-md-4">
+              <div className="form-floating mb-3">
+                <input
                   type="email"
                   className="form-control"
                   id="floatingPassword"
