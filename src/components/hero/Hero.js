@@ -1,3 +1,4 @@
+import { ButtonOrder } from '../order-food/ButtonOrderFood';
 import './hero.css';
 
 export const Hero = () => {
@@ -8,6 +9,7 @@ export const Hero = () => {
         <p className="hero__container__paragraph">
           Heute haben wir geöffnet bis 22:00
         </p>
+        <ButtonOrder />
       </div>
     </div>
   );

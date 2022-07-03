@@ -1,19 +1,17 @@
 .buttonOrder {
+    /*arreglar el botton*/
     width: 10rem;
     height: 3rem;
     line-height: 3rem;
     background-color: hsla(0, 0%, 100%, 0.772);
     color: rgb(46, 43, 43);
-    position: absolute;
     font-size: 1.4rem;
-    transform: translateX(-50%);
-    top: 32rem;
     text-align: center;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 1s ease;
-
-
+    position: sticky;
+    top: 0;
 }
 
 .buttonOrder:hover {
