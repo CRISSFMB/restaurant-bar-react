@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormCheck } from './FormCheck/FormCheck';
+import { FormCheck } from '../FormCheck/FormCheck';
 
 export const PaymentMethod = () => {
   return (

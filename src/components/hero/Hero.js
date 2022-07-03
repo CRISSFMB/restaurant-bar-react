@@ -1,4 +1,4 @@
-import { ButtonOrder } from '../order-food/ButtonOrderFood';
+import { ButtonOrder } from '../order-food/buttonOderFood/ButtonOrderFood';
 import './hero.css';
 
 export const Hero = () => {

@@ -1,4 +1,3 @@
-import { OrderList } from './OrderList';
 import './orderForm.css';
 
 export const DeliveryInfoClientForm = () => {
@@ -8,7 +7,7 @@ export const DeliveryInfoClientForm = () => {
       <form>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-12 col-md-4">
+            <div className="col-12">
               <div className="form-floating mb-3">
                 <input
                   type="text"
@@ -19,7 +18,7 @@ export const DeliveryInfoClientForm = () => {
                 <label htmlFor="floatingInput">Your name</label>
               </div>
             </div>
-            <div className="col-12 col-md-4">
+            <div className="col-12">
               <div className="form-floating mb-3">
                 <input
                   type="adress"
@@ -30,7 +29,9 @@ export const DeliveryInfoClientForm = () => {
                 <label htmlFor="phone">Your adress</label>
               </div>
             </div>
-            <div className="col-12 col-md-4">
+          </div>
+          <div className="row">
+            <div className="col-12 col-lg-6">
               <div className="form-floating mb-3">
                 <input
                   type="email"
@@ -41,7 +42,8 @@ export const DeliveryInfoClientForm = () => {
                 <label htmlFor="floatingPassword">Your email</label>
               </div>
             </div>
-            <div className="col-12 col-md-4">
+
+            <div className="col-12 col-lg-6">
               <div className="form-floating">
                 <input
                   type="phone"

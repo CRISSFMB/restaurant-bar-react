@@ -1,16 +1,22 @@
 import { Modal } from '../overlays/Modal';
-import { DeliveryInfoClientForm } from './DeliveryInfoClientForm';
-
-import { OrderList } from './OrderList';
-import { PaymentMethod } from './PaymentMethod';
+import { DeliveryInfoClientForm } from './ClientInfo/DeliveryInfoClientForm';
+import { OrderList } from './oder-list/OrderList';
+import { PaymentMethod } from './paymentMethod/PaymentMethod';
 import { TimeDelivery } from './timeDelivery.js/TimeDelivery';
 
 export const OrderForm = () => {
   return (
     <Modal>
       <div className="container">
-        <DeliveryInfoClientForm />
-        <OrderList />
+        <div className="row">
+          <div className="col-12 col-lg-6 mb-1  ">
+            <DeliveryInfoClientForm />
+          </div>
+          <div className="col-12 col-lg-6 mb-4">
+            <OrderList />
+          </div>
+        </div>
+
         <TimeDelivery />
         <PaymentMethod />
       </div>
