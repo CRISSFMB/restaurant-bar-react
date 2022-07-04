@@ -1,4 +1,5 @@
 import React from 'react';
+import { BuyIcon } from '../../icons/BuyIcon';
 import { FormCheck } from '../FormCheck/FormCheck';
 
 export const PaymentMethod = () => {
@@ -11,7 +12,10 @@ export const PaymentMethod = () => {
       </p>
       <p className="text-center">+4951160696060</p>
 
-      <button className="btn btn-primary btn-lg btn-dark mb-5">
+      <button className="btn btn-primary btn-lg  mb-3">
+        <div>
+          <BuyIcon />
+        </div>
         ORDER NOW
       </button>
 

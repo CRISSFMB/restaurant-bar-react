@@ -1,0 +1,45 @@
+.avaliable-meals {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+.avaliable-item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.avaliable-item__image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info-meals {
+    text-align: center;
+    padding-left: 1rem;
+}
+
+.meal-list {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 612px) {
+    .avaliable-meals {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .avaliable-item {
+        width: 50%;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

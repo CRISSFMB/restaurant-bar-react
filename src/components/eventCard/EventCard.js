@@ -14,7 +14,7 @@ export const EventCard = () => {
       }}
     >
       <div className="container">
-        <div className="row p-5">
+        <div className="row p-1">
           <div className="col-12 col-md-6">
             <img src={steakEvent} className="card-img-top" alt="steak-event" />
           </div>
