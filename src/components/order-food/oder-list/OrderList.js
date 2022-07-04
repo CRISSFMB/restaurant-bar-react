@@ -16,6 +16,7 @@ export const OrderList = () => {
           <span className="badge bg-primary rounded-pill">1</span>
         </li>
       </ul>
+      <p>TOTAL Amount : $99</p>
     </>
   );
 };

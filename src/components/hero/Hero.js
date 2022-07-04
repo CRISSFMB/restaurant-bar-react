@@ -1,7 +1,7 @@
 import { ButtonOrder } from '../order-food/buttonOderFood/ButtonOrderFood';
 import './hero.css';
 
-export const Hero = () => {
+export const Hero = ({ setIsOrder }) => {
   return (
     <div className="hero">
       <div className="hero__container">
@@ -9,7 +9,7 @@ export const Hero = () => {
         <p className="hero__container__paragraph">
           Heute haben wir geöffnet bis 22:00
         </p>
-        <ButtonOrder />
+        <ButtonOrder setIsOrder={setIsOrder} />
       </div>
     </div>
   );
