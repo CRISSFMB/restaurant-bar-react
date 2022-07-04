@@ -5,12 +5,15 @@ import { OrderList } from './oder-list/OrderList';
 import { PaymentMethod } from './paymentMethod/PaymentMethod';
 import { TimeDelivery } from './timeDelivery.js/TimeDelivery';
 
-export const OrderForm = () => {
+export const OrderForm = ({ handlerOnClose, handlerPushOrder }) => {
   return (
     <Modal>
       <div className="container">
         <div className="row">
-          <button className="btn btn-outline-danger btn-lg mb-5">
+          <button
+            className="btn btn-outline-danger btn-lg mb-5"
+            onClick={handlerOnClose}
+          >
             <BackIcon />
             back
           </button>
@@ -23,7 +26,10 @@ export const OrderForm = () => {
         </div>
 
         <TimeDelivery />
-        <PaymentMethod />
+        <PaymentMethod
+          handlerOnClose={handlerOnClose}
+          handlerPushOrder={handlerPushOrder}
+        />
       </div>
     </Modal>
   );

@@ -2,11 +2,11 @@ import { useRef, useState } from 'react';
 import Input from '../../UI/Input';
 import classes from './AmountForm.module.css';
 
-export const AmountForm = (props) => {
+export const AmountForm = ({ onAddToCart, id }) => {
   const [isAmountValid, setIsAmountValid] = useState(true);
   const configurationInput = {
     label: 'amount',
-    id: 'amount_',
+    id: 'amount_' + id,
     type: 'number',
     min: '1',
     max: '5',
@@ -31,7 +31,7 @@ export const AmountForm = (props) => {
       return;
     }
 
-    props.onAddToCart(enteredValueAmountNumber);
+    onAddToCart(enteredValueAmountNumber);
   };
 
   return (

@@ -14,7 +14,6 @@
 .hero__container {
     color: white;
     font-weight: bold;
-    font-family: 'Amatic SC', cursive;
     display: flex;
     flex-direction: column;
     justify-content: center;

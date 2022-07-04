@@ -1,6 +1,5 @@
-import { AmountForm } from '../FormOrder.js/AmountForm';
-import { AvaliableMealsItem } from './AvaliableMealsItem';
 import './avaliableMeals.css';
+import { MealItem } from './MealItem';
 
 export const AvaliableMeals = () => {
   const dataDummy = [
@@ -40,27 +39,17 @@ export const AvaliableMeals = () => {
     },
   ];
 
-  const handlerAddToCart = (amount) => {
-    console.log(amount);
-  };
+  const mealItem = dataDummy.map((meal) => (
+    <MealItem
+      key={meal.id}
+      image={meal.image}
+      title={meal.title}
+      description={meal.description}
+      price={meal.price}
+      id={meal.id}
+      name={meal.title}
+    />
+  ));
 
-  return (
-    <div className="meal-list">
-      {dataDummy.map((meal) => {
-        return (
-          <div className="avaliable-meals" key={meal.id}>
-            <AvaliableMealsItem
-              image={meal.image}
-              title={meal.title}
-              description={meal.description}
-              price={meal.price}
-            />
-
-            <AmountForm onAddToCart={handlerAddToCart} />
-            <hr />
-          </div>
-        );
-      })}
-    </div>
-  );
+  return <div className="meal-list">{mealItem}</div>;
 };

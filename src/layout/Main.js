@@ -9,9 +9,25 @@ import { Voucher } from '../components/vocher/Voucher';
 
 export const Main = () => {
   const [isOrder, setIsOrder] = useState(false);
+  const [IspushOrder, setIspushOrder] = useState(false);
+
+  const handlerOnClose = () => {
+    setIsOrder(false);
+  };
+
+  const handlerPushOrder = () => {
+    setIspushOrder(true);
+    setIsOrder(false);
+  };
   return (
     <div className="wrapper-main">
-      {isOrder && <OrderForm />}
+      {isOrder && (
+        <OrderForm
+          handlerOnClose={handlerOnClose}
+          handlerPushOrder={handlerPushOrder}
+        />
+      )}
+      {IspushOrder && <p>thx for buy </p>}
       <Hero setIsOrder={setIsOrder} />
       <AvaliableMeals />
       <Info />

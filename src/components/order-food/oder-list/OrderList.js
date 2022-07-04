@@ -1,22 +1,20 @@
+import { useContext } from 'react';
+import { DataContext } from '../../../context/DataContext';
+import { OrderItem } from './OrderItem';
+
 export const OrderList = () => {
+  const { items, totalAmount } = useContext(DataContext);
+
+  console.log(items);
   return (
     <>
       <h4>YOUR ORDER</h4>
       <ul className="list-group">
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-          Pizza
-          <span className="badge bg-primary rounded-pill">14</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-          Steak
-          <span className="badge bg-primary rounded-pill">2</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-          Nudel
-          <span className="badge bg-primary rounded-pill">1</span>
-        </li>
+        {items.map((item) => {
+          return <OrderItem key={item.id} {...item} />;
+        })}
       </ul>
-      <p>TOTAL Amount : $99</p>
+      <p>TOTAL Amount : ${totalAmount}</p>
     </>
   );
 };

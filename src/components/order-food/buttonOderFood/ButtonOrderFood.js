@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { DataContext } from '../../../context/DataContext';
+import { CartIcon } from '../../icons/CartIcon';
 import './buttonOrder.css';
 
 export const ButtonOrder = ({ setIsOrder }) => {
@@ -15,7 +16,10 @@ export const ButtonOrder = ({ setIsOrder }) => {
 
   return (
     <div className="buttonOrder" onClick={handlerStartOrder}>
-      <p className="buttonOrder__title">Order Food {NumberOfItems}</p>
+      <p className="buttonOrder__title">
+        Your Order <CartIcon />
+        <span className="buttonOrder__amount">{NumberOfItems}</span>
+      </p>
     </div>
   );
 };
