@@ -16,9 +16,13 @@ export const ButtonOrder = ({ setIsOrder }) => {
 
   return (
     <div className="buttonOrder" onClick={handlerStartOrder}>
-      <p className="buttonOrder__title">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <p>
         Your Order <CartIcon />
-        <span className="buttonOrder__amount">{NumberOfItems}</span>
+        <p className="amount-order">{NumberOfItems}</p>
       </p>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Carticon.css';
 
 export const CartIcon = () => {
   return (
