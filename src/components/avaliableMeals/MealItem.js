@@ -22,7 +22,9 @@ export const MealItem = (props) => {
         </div>
         <div className="info-meals">
           <p className="info-meals__title">{props.title}</p>
+          <hr />
           <p className="info-meals__description">{props.description}</p>
+          <hr />
           <p>{`$${props.price}`}</p>
         </div>
       </div>

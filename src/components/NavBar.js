@@ -3,7 +3,7 @@ export const NavBar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid ">
         <a href="https://newbedev.com/" className="navbar-brand">
-          Restaurant & Bar Geradaus
+          Restaurant Latzen
         </a>
         <button
           className="navbar-toggler"

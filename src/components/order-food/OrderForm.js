@@ -10,8 +10,6 @@ import { PushOrderButton } from './pushOrderButton/PushOrderButton';
 import { TimeDelivery } from './timeDelivery.js/TimeDelivery';
 
 export const OrderForm = ({ handlerOnClose, handlerPushOrder }) => {
-  const { isOrderComplete } = useContext(DataContext);
-
   return (
     <Modal>
       <div className="container">
@@ -34,11 +32,8 @@ export const OrderForm = ({ handlerOnClose, handlerPushOrder }) => {
         <TimeDelivery />
 
         <PaymentMethod handlerOnClose={handlerOnClose} />
-        {isOrderComplete ? (
-          <PushOrderButton handlerPushOrder={handlerPushOrder} />
-        ) : (
-          <p>PLEASE COMPLETE THE FORMULARY TO ORDER</p>
-        )}
+
+        <PushOrderButton handlerPushOrder={handlerPushOrder} />
       </div>
     </Modal>
   );

@@ -5,7 +5,7 @@ import classes from './AmountForm.module.css';
 export const AmountForm = ({ onAddToCart, id }) => {
   const [isAmountValid, setIsAmountValid] = useState(true);
   const configurationInput = {
-    label: 'amount',
+    label: 'Menge',
     id: 'amount_' + id,
     type: 'number',
     min: '1',
@@ -37,8 +37,8 @@ export const AmountForm = ({ onAddToCart, id }) => {
   return (
     <form className={classes.form} onSubmit={handlerAmountSubmit}>
       <Input input={configurationInput} ref={amountInput} />
-      <button>+ Add</button>
-      {!isAmountValid && <p>Please Choose a Meal (1 - 5)</p>}
+      <button className="mt-4 mt-md-0">+ hinzufügen</button>
+      {!isAmountValid && <p>Bitte wählen Sie eine Mahlzeit zwischen (1 - 5)</p>}
     </form>
   );
 };

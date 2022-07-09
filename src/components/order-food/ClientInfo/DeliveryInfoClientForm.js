@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DataContext } from '../../../context/DataContext';
 import { useInput } from '../../../hook/use-input';
 import './orderForm.css';
 
 export const DeliveryInfoClientForm = () => {
+  const [isformSave, setisformSave] = useState(false);
   const { addInfoClient } = useContext(DataContext);
 
   const validateNameValue = (value) => {
@@ -92,6 +93,10 @@ export const DeliveryInfoClientForm = () => {
     });
   };
 
+  const handlerSuccessForm = () => {
+    setisformSave(true);
+  };
+
   return (
     <div className="order-form mb-5">
       <h4 className="order-form__title mb-4 ">Client Information </h4>
@@ -163,10 +168,17 @@ export const DeliveryInfoClientForm = () => {
             </div>
             <button
               type="submit"
-              className="btn btn-primary mt-1"
+              className={`btn mt-4 ${
+                !formValidate ? 'btn-danger mt-1' : 'btn-success'
+              } `}
               disabled={!formValidate}
+              onClick={handlerSuccessForm}
             >
-              CORRECT ICON
+              {!formValidate
+                ? 'bitte füllen Sie das Formular aus '
+                : 'Bitte bestätigen Sie Ihre Daten'}
+
+              {isformSave && <i class="bi bi-check-circle"></i>}
             </button>
           </div>
         </div>
