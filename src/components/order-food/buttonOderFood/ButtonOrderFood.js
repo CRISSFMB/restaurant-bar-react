@@ -22,7 +22,7 @@ export const ButtonOrder = ({ setIsOrder }) => {
       <span></span>
       <p>
         Your Order <CartIcon />
-        <p className="amount-order">{NumberOfItems}</p>
+        {NumberOfItems}
       </p>
     </div>
   );

@@ -5,7 +5,6 @@ import { OrderItem } from './OrderItem';
 export const OrderList = () => {
   const { items, totalAmount } = useContext(DataContext);
 
-  console.log(items);
   return (
     <>
       <h4>YOUR ORDER</h4>

@@ -1,11 +1,17 @@
+import { useContext } from 'react';
+import { DataContext } from '../../context/DataContext';
 import { BackIcon } from '../icons/BackIcon';
+
 import { Modal } from '../overlays/Modal';
 import { DeliveryInfoClientForm } from './ClientInfo/DeliveryInfoClientForm';
 import { OrderList } from './oder-list/OrderList';
 import { PaymentMethod } from './paymentMethod/PaymentMethod';
+import { PushOrderButton } from './pushOrderButton/PushOrderButton';
 import { TimeDelivery } from './timeDelivery.js/TimeDelivery';
 
 export const OrderForm = ({ handlerOnClose, handlerPushOrder }) => {
+  const { isOrderComplete } = useContext(DataContext);
+
   return (
     <Modal>
       <div className="container">
@@ -26,10 +32,13 @@ export const OrderForm = ({ handlerOnClose, handlerPushOrder }) => {
         </div>
 
         <TimeDelivery />
-        <PaymentMethod
-          handlerOnClose={handlerOnClose}
-          handlerPushOrder={handlerPushOrder}
-        />
+
+        <PaymentMethod handlerOnClose={handlerOnClose} />
+        {isOrderComplete ? (
+          <PushOrderButton handlerPushOrder={handlerPushOrder} />
+        ) : (
+          <p>PLEASE COMPLETE THE FORMULARY TO ORDER</p>
+        )}
       </div>
     </Modal>
   );

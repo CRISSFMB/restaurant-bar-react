@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../../../context/DataContext';
 
 export const TimeDelivery = () => {
+  const { addDateDelivery, addTimeDelivery } = useContext(DataContext);
+  const handlerDate = (e) => {
+    const dateValue = e.target.value;
+    addDateDelivery(dateValue);
+  };
+
+  const handlerSelectTime = (e) => {
+    const timeValue = e.target.value;
+    addTimeDelivery(timeValue);
+  };
+
   return (
     <div className="order-form mb-5">
       <h4 className="order-form__title mb-4 ">TIME DELIVERY</h4>
@@ -14,6 +26,7 @@ export const TimeDelivery = () => {
                   className={`form-control backgrond-black `}
                   id="date"
                   placeholder="date"
+                  onChange={handlerDate}
                 />
                 <label htmlFor="date">Date Delivery</label>
               </div>
@@ -31,6 +44,7 @@ export const TimeDelivery = () => {
                     className="form-select"
                     id="inputGroupSelect01"
                     defaultValue="DEFAULT"
+                    onChange={handlerSelectTime}
                   >
                     <option value="DEFAULT">Please choose your hour</option>
                     <option value="10am">10am</option>
