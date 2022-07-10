@@ -1,7 +1,4 @@
-import { useContext } from 'react';
-import { DataContext } from '../../context/DataContext';
 import { BackIcon } from '../icons/BackIcon';
-
 import { Modal } from '../overlays/Modal';
 import { DeliveryInfoClientForm } from './ClientInfo/DeliveryInfoClientForm';
 import { OrderList } from './oder-list/OrderList';
