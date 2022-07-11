@@ -10,13 +10,40 @@
     transition: .5s;
     margin-top: 40px;
     letter-spacing: 4px;
-    left: -93px;
-    top: 31rem;
+    left: -105px;
+    top: 35rem;
     transform: rotate(90deg);
     background-color: rgb(9, 9, 8);
     border-radius: 10px;
     z-index: 29;
+    width: 262px;
+    height: 52px;
 }
+
+@media screen and (min-width: 1024px) {
+    .buttonOrder {
+        top: 72%;
+        left: 79%;
+        transform: rotate(90deg);
+    }
+}
+
+@media screen and (min-width: 1444px) {
+    .buttonOrder {
+        top: 74%;
+        left: 78%;
+        transform: rotate(90deg);
+    }
+}
+
+
+/* @media screen and (min-width: 1444px) {
+    .buttonOrder {
+        top: 43rem;
+        left: 41rem;
+        transform: rotate(0deg);
+    }
+} */
 
 .buttonOrder p {
     margin: 0;

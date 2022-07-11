@@ -52,12 +52,12 @@ code {
 
 .container-custom {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1800px;
   min-width: 320px;
   margin: 0 auto;
   position: relative;
 }
 
 .wrapper-main {
-  background-color: black;
+  background-color: white;
 }
