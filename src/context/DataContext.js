@@ -21,6 +21,8 @@ export const DataProvider = ({ children }) => {
 
   const [Infostate, infoDispatch] = useReducer(infoReducer, informationClient);
 
+  const [invoice, setInvoice] = useState(false);
+
   // console.log(Infostate);
 
   const addItemHandler = (item) => {
@@ -34,6 +36,7 @@ export const DataProvider = ({ children }) => {
   /**************************************************************************/
 
   const [isOrder, setIsOrder] = useState(false);
+  const [infoClientOrder, setInfoClient] = useState(null);
 
   const handlerOnClose = () => {
     setIsOrder(false);
@@ -87,6 +90,10 @@ export const DataProvider = ({ children }) => {
     addTimeDelivery: addTimeDelivery,
     addMethod: addMethod,
     addinfoForm: addinfoForm,
+    setInfoClient: setInfoClient,
+    infoClientOrder: infoClientOrder,
+    setInvoice: setInvoice,
+    invoice: invoice,
   };
 
   const data = {

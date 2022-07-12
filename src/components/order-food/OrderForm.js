@@ -19,8 +19,10 @@ export const OrderForm = () => {
             back
           </button>
 
-          <div className="col-12 col-lg-6 mb-1">
+          <div className="col-12 col-lg-6 mb-4">
             <OrderList />
+          </div>
+          <div className="col-12 col-lg-6 mb-1">
             <DeliveryInfoClientForm />
           </div>
         </div>

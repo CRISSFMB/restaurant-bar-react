@@ -10,7 +10,9 @@ import { useContext } from 'react';
 import { DataContext } from '../context/DataContext';
 
 export const Main = () => {
-  const { infoContext } = useContext(DataContext);
+  const {
+    infoContext: { isOrder, invoice },
+  } = useContext(DataContext);
 
   return (
     <div className="wrapper-main">
@@ -20,8 +22,8 @@ export const Main = () => {
       <Galery />
       <Voucher />
       <EventCard />
-      {infoContext.isOrder && <OrderForm />}
-      {/* <Invoice /> */}
+      {isOrder && <OrderForm />}
+      {invoice && <Invoice />}
     </div>
   );
 };

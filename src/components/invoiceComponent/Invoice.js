@@ -1,8 +1,27 @@
+import { useContext } from 'react';
 import imgPayment from '../../assets/svgs/payment-icon.svg';
+import { DataContext } from '../../context/DataContext';
 
 import './invoice.css';
 
 export const Invoice = () => {
+  const {
+    infoContext: { infoClientOrder },
+  } = useContext(DataContext);
+
+  console.log(infoClientOrder);
+
+  const {
+    AddressValue,
+    data,
+    emailValue,
+    method,
+    nameValue,
+    phoneValue,
+    time,
+    totalAmount,
+  } = infoClientOrder;
+
   return (
     <>
       <div className="Invoice">
@@ -28,14 +47,14 @@ export const Invoice = () => {
                 </div>
                 {/* ---- */}
                 <div>
-                  <p>Cristian</p>
-                  <p>Hohohnsweg 3</p>
-                  <p>cmosqbone1@gmail.com</p>
-                  <p>872309ß1293</p>
-                  <p>cash</p>
-                  <p>$234</p>
-                  <p>5 marzo</p>
-                  <p>11 am</p>
+                  <p>{nameValue}</p>
+                  <p>{AddressValue}3</p>
+                  <p>{emailValue}</p>
+                  <p>+49 {phoneValue}</p>
+                  <p>{method}</p>
+                  <p>$ {totalAmount}</p>
+                  <p>{data}</p>
+                  <p>{time}</p>
                 </div>
               </div>
             </div>

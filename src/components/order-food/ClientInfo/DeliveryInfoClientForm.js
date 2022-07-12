@@ -1,19 +1,36 @@
+import { useContext, useState } from 'react';
+import { DataContext } from '../../../context/DataContext';
 import { useInput } from '../../../hook/use-input';
 import { BuyIcon } from '../../icons/BuyIcon';
 import './orderForm.css';
 import './pushorderbutton.css';
 
 export const DeliveryInfoClientForm = () => {
-  const handlerDate = (e) => {
-    const dateValue = e.target.value;
+  const {
+    infoContext: { setInfoClient, setInvoice },
+    cartContext: { totalAmount },
+  } = useContext(DataContext);
+
+  const [allinfo, setAllInfo] = useState({
+    time: '',
+    data: '',
+    method: '',
+  });
+
+  const handlerData = (e) => {
+    const dataValue = e.target.value;
+
+    setAllInfo({ ...allinfo, data: dataValue });
   };
 
   const handlerSelectTime = (e) => {
     const timeValue = e.target.value;
+    setAllInfo({ ...allinfo, time: timeValue });
   };
 
   const changeHanlderCheck = (e) => {
     const checkValue = e.target.value;
+    setAllInfo({ ...allinfo, method: checkValue });
   };
 
   const validateNameValue = (value) => {
@@ -82,19 +99,25 @@ export const DeliveryInfoClientForm = () => {
     formValidate = true;
   }
 
-  const dataForm = {
+  const formInformationClientPersonal = {
     nameValue: enteredNameValue,
     AddressValue: enteredAddressValue,
     emailValue: enteredEmailValue,
     phoneValue: enteredPhoneValue,
+    totalAmount: totalAmount,
   };
 
-  console.log(dataForm);
+  const hanlderSubmit = (e) => {
+    e.preventDefault();
+    const allinfoForm = { ...allinfo, ...formInformationClientPersonal };
+    setInfoClient(allinfoForm);
+    setInvoice(true);
+  };
 
   return (
     <div className="order-form mb-5">
       <h4 className="order-form__title mb-4 ">Client Information </h4>
-      <form>
+      <form onSubmit={hanlderSubmit}>
         <div className="container-fluid">
           <div className="row">
             <div className="col-12">
@@ -176,7 +199,7 @@ export const DeliveryInfoClientForm = () => {
                   className={`form-control backgrond-black `}
                   id="date"
                   placeholder="date"
-                  onChange={handlerDate}
+                  onChange={handlerData}
                 />
                 <label htmlFor="date">Date Delivery</label>
               </div>
