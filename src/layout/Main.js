@@ -6,7 +6,7 @@ import { Info } from '../components/info/Info';
 import { Invoice } from '../components/invoiceComponent/Invoice';
 import { OrderForm } from '../components/order-food/OrderForm';
 import { Voucher } from '../components/vocher/Voucher';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { DataContext } from '../context/DataContext';
 
 export const Main = () => {
@@ -21,7 +21,7 @@ export const Main = () => {
       <Voucher />
       <EventCard />
       {infoContext.isOrder && <OrderForm />}
-      {/* {IspushOrder && <Invoice />} */}
+      {/* <Invoice /> */}
     </div>
   );
 };

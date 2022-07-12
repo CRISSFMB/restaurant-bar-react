@@ -4,13 +4,9 @@ import { BackIcon } from '../icons/BackIcon';
 import { Modal } from '../overlays/Modal';
 import { DeliveryInfoClientForm } from './ClientInfo/DeliveryInfoClientForm';
 import { OrderList } from './oder-list/OrderList';
-import { PaymentMethod } from './paymentMethod/PaymentMethod';
-import { PushOrderButton } from './pushOrderButton/PushOrderButton';
-import { TimeDelivery } from './timeDelivery.js/TimeDelivery';
 
 export const OrderForm = () => {
   const { infoContext } = useContext(DataContext);
-
   return (
     <Modal>
       <div className="container">
@@ -22,19 +18,12 @@ export const OrderForm = () => {
             <BackIcon />
             back
           </button>
+
           <div className="col-12 col-lg-6 mb-1">
+            <OrderList />
             <DeliveryInfoClientForm />
           </div>
-          <div className="col-12 col-lg-6 mb-4">
-            <OrderList />
-          </div>
         </div>
-
-        <TimeDelivery />
-
-        <PaymentMethod />
-
-        <PushOrderButton />
       </div>
     </Modal>
   );
