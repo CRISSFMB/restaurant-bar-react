@@ -1,61 +1,27 @@
 import React, { createContext, useReducer, useState } from 'react';
+import { cartReducer } from '../reducers/cartReducer';
+import { infoReducer } from '../reducers/infoReducer';
 
 export const DataContext = createContext(null);
 
-// reducer
 const InitialState = {
   items: [],
   totalAmount: 0,
 };
-/// context
 
-const cartReducer = (state, action) => {
-  if (action.type === 'ADD') {
-    const arrayItemsUpdate = state.items.concat(action.payload);
-    const totalAmount =
-      state.totalAmount + action.payload.price * action.payload.amount;
-
-    return {
-      items: arrayItemsUpdate,
-      totalAmount: totalAmount,
-    };
-  }
-
-  return state;
-};
-
-const InitialStateinfo = {
-  infoData: [],
-  DateDelivery: '',
-  timeDelivery: '',
-  method: '',
-};
-
-const infoReducer = (state, action) => {
-  switch (action.type) {
-    case 'addInfo':
-      return { ...state, infoData: action.payload };
-    case 'AddDataDelivery':
-      return { ...state, DateDelivery: action.payload };
-    case 'AddDataTime':
-      return { ...state, timeDelivery: action.payload };
-    case 'addMethod':
-      return { ...state, method: action.payload };
-    default:
-      return state;
-  }
+const informationClient = {
+  allInfoForm: null,
+  DateDelivery: 'no set',
+  timeDelivery: 'no set',
+  UserMethod: 'no set',
 };
 
 export const DataProvider = ({ children }) => {
   const [cartState, cartDispatch] = useReducer(cartReducer, InitialState);
 
-  const [Infostate, infoDispatch] = useReducer(infoReducer, InitialStateinfo);
+  const [Infostate, infoDispatch] = useReducer(infoReducer, informationClient);
 
-  const [isOrderComplete, setIsOrderComplete] = useState(false);
-
-  console.log(Infostate);
-
-  /*handlers*/
+  // console.log(Infostate);
 
   const addItemHandler = (item) => {
     cartDispatch({
@@ -65,29 +31,41 @@ export const DataProvider = ({ children }) => {
   };
   const removeItemHandler = (id) => {};
 
-  // info functions
-  const addInfoClient = (info) => {
+  /**************************************************************************/
+
+  const [isOrder, setIsOrder] = useState(false);
+
+  const handlerOnClose = () => {
+    setIsOrder(false);
+  };
+
+  const handlerStartOrder = () => {
+    setIsOrder(true);
+  };
+
+  /****************+++*/
+  const addinfoForm = (info) => {
     infoDispatch({
-      type: 'addInfo',
+      type: 'info',
       payload: info,
     });
   };
   const addDateDelivery = (datedelivery) => {
     infoDispatch({
-      type: 'AddDataDelivery',
+      type: 'date',
       payload: datedelivery,
     });
   };
   const addTimeDelivery = (timeDelivery) => {
     infoDispatch({
-      type: 'AddDataTime',
+      type: 'time',
       payload: timeDelivery,
     });
   };
 
   const addMethod = (method) => {
     infoDispatch({
-      type: 'addMethod',
+      type: 'method',
       payload: method,
     });
   };
@@ -98,15 +76,23 @@ export const DataProvider = ({ children }) => {
     totalAmount: cartState.totalAmount,
     addItem: addItemHandler,
     removeItem: removeItemHandler,
-    Infostate: Infostate.infoData,
-    addInfoClient: addInfoClient,
+  };
+
+  const infoContext = {
+    Infostate: Infostate,
+    isOrder: isOrder,
+    handlerOnClose: handlerOnClose,
+    handlerStartOrder: handlerStartOrder,
     addDateDelivery: addDateDelivery,
     addTimeDelivery: addTimeDelivery,
     addMethod: addMethod,
-    isOrderComplete: isOrderComplete,
+    addinfoForm: addinfoForm,
   };
 
-  return (
-    <DataContext.Provider value={cartContext}>{children}</DataContext.Provider>
-  );
+  const data = {
+    cartContext,
+    infoContext,
+  };
+
+  return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };

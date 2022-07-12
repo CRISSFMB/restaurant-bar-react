@@ -1,7 +1,7 @@
 import { BuyIcon } from '../../icons/BuyIcon';
 import './pushorderbutton.css';
 
-export const PushOrderButton = ({ handlerPushOrder }) => {
+export const PushOrderButton = () => {
   return (
     <>
       <p className="text-center mt-4">
@@ -9,10 +9,7 @@ export const PushOrderButton = ({ handlerPushOrder }) => {
       </p>
       <p className="text-center">+4951160696060</p>
       <div className="custom-button-order">
-        <button
-          className="btn btn-primary btn-lg mb-3 custom-button-order"
-          onClick={handlerPushOrder}
-        >
+        <button className="btn btn-primary btn-lg mb-3 custom-button-order">
           <div>
             <BuyIcon />
           </div>

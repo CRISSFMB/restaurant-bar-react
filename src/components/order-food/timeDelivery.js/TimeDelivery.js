@@ -2,7 +2,10 @@ import React, { useContext } from 'react';
 import { DataContext } from '../../../context/DataContext';
 
 export const TimeDelivery = () => {
-  const { addDateDelivery, addTimeDelivery } = useContext(DataContext);
+  const { infoContext } = useContext(DataContext);
+
+  const { addDateDelivery, addTimeDelivery } = infoContext;
+
   const handlerDate = (e) => {
     const dateValue = e.target.value;
     addDateDelivery(dateValue);

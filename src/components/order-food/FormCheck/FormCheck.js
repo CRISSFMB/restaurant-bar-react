@@ -2,11 +2,10 @@ import React, { useContext } from 'react';
 import { DataContext } from '../../../context/DataContext';
 
 export const FormCheck = () => {
-  const { addMethod } = useContext(DataContext);
+  const { infoContext } = useContext(DataContext);
   const changeHanlderCheck = (e) => {
     const checkValue = e.target.value;
-
-    addMethod(checkValue);
+    infoContext.addMethod(checkValue);
   };
   return (
     <>

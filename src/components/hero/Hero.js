@@ -3,8 +3,8 @@ import { DataContext } from '../../context/DataContext';
 import { ButtonOrder } from '../order-food/buttonOderFood/ButtonOrderFood';
 import './hero.css';
 
-export const Hero = ({ setIsOrder }) => {
-  const { items } = useContext(DataContext);
+export const Hero = () => {
+  const { cartContext } = useContext(DataContext);
 
   return (
     <div className="hero">
@@ -14,12 +14,12 @@ export const Hero = ({ setIsOrder }) => {
           Heute haben wir geöffnet bis 22:00
         </p>
 
-        {items.length <= 0 ? (
+        {cartContext.items.length <= 0 ? (
           <div className="alert alert-info" role="alert">
             Bitte wählen Sie Ihr Lieblingsessen
           </div>
         ) : (
-          <ButtonOrder setIsOrder={setIsOrder} />
+          <ButtonOrder />
         )}
       </div>
     </div>

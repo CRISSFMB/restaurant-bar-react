@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { DataContext } from '../../context/DataContext';
 import { AmountForm } from '../FormOrder.js/AmountForm';
 
 export const MealItem = (props) => {
-  const { addItem } = useContext(DataContext);
+  const { cartContext } = useContext(DataContext);
+
+  const { addItem } = cartContext;
 
   const handlerAddToCart = (amount) => {
     addItem({

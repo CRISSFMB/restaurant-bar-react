@@ -1,12 +1,7 @@
-import { useContext, useState } from 'react';
-import { DataContext } from '../../../context/DataContext';
 import { useInput } from '../../../hook/use-input';
 import './orderForm.css';
 
 export const DeliveryInfoClientForm = () => {
-  const [isformSave, setisformSave] = useState(false);
-  const { addInfoClient } = useContext(DataContext);
-
   const validateNameValue = (value) => {
     const isInputValid = value.trim() !== '';
     return isInputValid;
@@ -73,34 +68,17 @@ export const DeliveryInfoClientForm = () => {
     formValidate = true;
   }
 
-  const handlerFormSubmit = (e) => {
-    e.preventDefault();
-
-    if (
-      !IsInputNameValid ||
-      !IsInputEmailValid ||
-      !IsInputPhoneValid ||
-      !IsInputAddressValid
-    ) {
-      return;
-    }
-
-    addInfoClient({
-      NameClient: enteredNameValue,
-      AdressClient: enteredAddressValue,
-      EmailClient: enteredEmailValue,
-      PhoneClient: enteredPhoneValue,
-    });
-  };
-
-  const handlerSuccessForm = () => {
-    setisformSave(true);
-  };
+  // getDataForm({
+  //   nameValue: enteredNameValue,
+  //   AddressValue: enteredAddressValue,
+  //   emailValue: enteredEmailValue,
+  //   phoneValue: enteredPhoneValue,
+  // });
 
   return (
     <div className="order-form mb-5">
       <h4 className="order-form__title mb-4 ">Client Information </h4>
-      <form onSubmit={handlerFormSubmit}>
+      <form>
         <div className="container-fluid">
           <div className="row">
             <div className="col-12">
@@ -166,20 +144,6 @@ export const DeliveryInfoClientForm = () => {
                 {PhoneInputIsInValid && <p>Please enter a phone valid</p>}
               </div>
             </div>
-            <button
-              type="submit"
-              className={`btn mt-4 ${
-                !formValidate ? 'btn-danger mt-1' : 'btn-success'
-              } `}
-              disabled={!formValidate}
-              onClick={handlerSuccessForm}
-            >
-              {!formValidate
-                ? 'bitte füllen Sie das Formular aus '
-                : 'Bitte bestätigen Sie Ihre Daten'}
-
-              {isformSave && <i class="bi bi-check-circle"></i>}
-            </button>
           </div>
         </div>
       </form>
